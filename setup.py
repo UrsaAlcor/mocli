@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+from setuptools import setup
+
+
+if __name__ == '__main__':
+    setup(
+        name='mocli',
+        version='0.0.0',
+        description='Lmod command line interface for managing its installation ',
+        author='Pierre Delaunay',
+        packages=[
+            'mocli',
+        ],
+        setup_requires=['setuptools'],
+        install_requires=['appdirs']
+    )
