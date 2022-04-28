@@ -41,5 +41,5 @@ def update_conf(**kwargs):
     save_conf(conf)
 
 
-def option(name, default):
+def option(name, default=None):
     return load_conf().get(name, default)
