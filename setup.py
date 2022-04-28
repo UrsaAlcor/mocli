@@ -12,5 +12,10 @@ if __name__ == '__main__':
             'mocli',
         ],
         setup_requires=['setuptools'],
-        install_requires=['appdirs']
+        install_requires=['appdirs'],
+            entry_points={
+            'console_scripts': [
+                'alcor = mocli.cli:main',
+            ]
+        }
     )

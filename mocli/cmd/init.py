@@ -1,5 +1,9 @@
+import os
+import subprocess
+import tempfile
+
 from mocli.interface import Command
-from mocli.config import save_conf, load_conf
+from mocli.config import update_conf
 
 
 LMOD_VERSION = "v0.0.0"
@@ -18,11 +22,20 @@ class InstallLmod(Command):
     def execute(args):
         path = args.path
 
-        conf = load_conf()
-        conf['root'] = path
-        save_conf(conf)
+        update_conf(root=path)
 
-        # Install Lmod
+        with tempfile.TemporaryDirectory() as dirname:
+            os.chdir(dirname)
+
+            subprocess.run(f'wget {LMOD_RELEASE}', shell=True, check=True)
+
+            filename = (subprocess.run('ls', check=True, stdout=subprocess.PIPE)
+                .stdout
+                .decode('utf-8')
+                .strip()
+            )
+
+            subprocess.run(f'unzip {filename} -d {path}', shell=True, check=True)
 
 
 COMMAND = InstallLmod

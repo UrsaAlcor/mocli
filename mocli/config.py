@@ -2,6 +2,7 @@ import os
 import json
 
 from appdirs import user_config_dir
+from simplejson import load
 
 
 NAME = 'mocli'
@@ -16,8 +17,11 @@ def load_conf():
     config = os.path.join(CONFIG, CONFIGNAME)
     os.makedirs(CONFIG, exist_ok=True)
 
-    with open(config, 'r') as conffile:
-        conf = json.load(conffile)
+    try:
+        with open(config, 'r') as conffile:
+            conf = json.load(conffile)
+    except FileNotFoundError:
+            conf = dict()
 
     LATEST_CONF = conf
     return conf
@@ -29,3 +33,13 @@ def save_conf(conf):
 
     with open(config, 'w') as conffile:
         json.dump(conf, conffile)
+
+
+def update_conf(**kwargs):
+    conf = load_conf()
+    conf.update(kwargs)
+    save_conf(conf)
+
+
+def option(name, default):
+    return load_conf().get(name, default)
