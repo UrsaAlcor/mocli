@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import logging
 
 from mocli.cmd import commands
 
@@ -18,6 +19,8 @@ def parse_args():
 
 def main():
     args = parse_args()
+
+    logging.basicConfig(level=logging.DEBUG)
 
     cmd_name = args.command
     command = commands.get(cmd_name)
