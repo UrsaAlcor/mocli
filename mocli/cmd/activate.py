@@ -4,8 +4,8 @@ from mocli.config import option
 
 template = """
 function activate_alcor {{
-    export MODULEPATH_ROOT={modules}
-    export MODULEPATH={modules}
+    export MODULEPATH_ROOT={modules}/$(arch)
+    export MODULEPATH={modules}/$(arch)
     export LMOD_SYSTEM_DEFAULT_MODULES=${{LMOD_SYSTEM_DEFAULT_MODULES:-"StdEnv"}}
 
     source {root}/lmod/init/profile
@@ -41,7 +41,7 @@ class Activate(Command):
     @staticmethod
     def execute(args):
         root = option('root')
-        modules = option('dist')
+        modules = option('modules')
 
         if root is None or modules is None:
             raise RuntimeError(f"alcor is not installed on this system")
