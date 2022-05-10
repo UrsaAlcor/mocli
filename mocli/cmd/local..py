@@ -3,7 +3,7 @@ import subprocess
 import tempfile
 
 from mocli.interface import Command
-from mocli.config import update_conf
+from mocli.config import update_conf, option
 
 
 class LocalLmod(Command):
@@ -18,6 +18,11 @@ class LocalLmod(Command):
     def execute(args):
         path = args.path
         update_conf(local=path)
+
+        # if bash.rc
+        auto = option('auto')
+
+
 
 
 COMMAND = LocalLmod
