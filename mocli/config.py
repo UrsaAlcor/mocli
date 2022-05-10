@@ -2,7 +2,6 @@ import os
 import json
 
 from appdirs import user_config_dir
-from simplejson import load
 
 
 NAME = 'mocli'

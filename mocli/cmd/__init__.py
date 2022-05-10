@@ -17,6 +17,7 @@ def fetch_factories(base_module, base_file_name, function_name='COMMAND'):
         try:
             module = __import__(".".join([base_module, module_name]), fromlist=[''])
         except ImportError as e:
+            print(e)
             continue
 
         if hasattr(module, function_name):
