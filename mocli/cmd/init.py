@@ -97,6 +97,30 @@ def move_modules(root, old_modules, new_modules, force=False):
 
 
 class InstallLmod(Command):
+    """Install lmod
+    
+    Parameters
+    ----------
+    path: str
+        Root to the lmod installation
+    
+    dist: str
+        Path to the binaries (distributables)
+    
+    modules: str
+        Path to lmod module files
+    
+    arch: str
+        name of the arch to install
+    
+    Examples
+    --------
+    
+    .. code-block:
+
+        alcor init /opt/alcor --dist /opt/alcor/dist --modules /opt/aclor/modules
+    
+    """
     name: str = "init"
 
     @staticmethod

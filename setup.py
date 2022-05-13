@@ -10,6 +10,7 @@ if __name__ == '__main__':
         author='Pierre Delaunay',
         packages=[
             'mocli',
+            'mocli.cmd'
         ],
         setup_requires=['setuptools'],
         install_requires=['appdirs'],

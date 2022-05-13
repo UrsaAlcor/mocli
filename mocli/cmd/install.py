@@ -1,19 +1,44 @@
 import os
 import subprocess
 import tempfile
+import glob
+import shutil
 
 from mocli.interface import Command
 from mocli.config import option
 
 
+
+packages = {
+    'lz4': 'https://github.com/UrsaAlcor/lz4/releases/download/v0.0.0/lz4_x86_64.zip'
+}
+
+
+def resolve_package(name):
+    return packages.get(name)
+
+
+def merge_folders(src, dst):
+    for file in glob.iglob(f'{src}/**/*', recursive=True):
+        newpath = file.replace(src, dst)
+        
+        if os.path.isdir(file):
+            os.makedirs(newpath, exist_ok=True)
+        else:
+            print(f'Move {file} to {newpath}')
+            shutil.move(file, newpath)
+
+
 class Install(Command):
-    name: str = "install"
+    name: str = "install" 
 
     @staticmethod
     def arguments(subparsers):
         parser = subparsers.add_parser(Install.name, help='Install a Lmod package')
         parser.add_argument("package", type=str, help='Name of the package to install (lua or lua/v5.4.3)')
         parser.add_argument("--user", action='store_true', help='Make the install in user space')
+        parser.add_argument("--arch", type=str, default=None, help='Specify a specific arch to install')
+        parser.add_argument("--url", type=str, default=None, help='Specify a URL override to download the package')
 
     @staticmethod
     def execute(args):
@@ -26,20 +51,31 @@ class Install(Command):
 
         if root is None:
             raise RuntimeError("Installation path is not defined")
+        
+        package_url = args.url
+        
+        if not package_url:
+            package_url = resolve_package(package)
+        
+        if package_url is None:
+            raise RuntimeError(f"`{package}` was not found")
 
         with tempfile.TemporaryDirectory() as dirname:
             os.chdir(dirname)
 
             # Download package
-            # subprocess.run(f'wget {LMOD_RELEASE}', shell=True, check=True)
+            subprocess.run(f'wget {package_url}', shell=True, check=True)
 
             filename = (subprocess.run('ls', check=True, stdout=subprocess.PIPE)
                 .stdout
                 .decode('utf-8')
                 .strip()
             )
-
-            subprocess.run(f'unzip {filename} -d {root}', shell=True, check=True)
+            
+            # unzip the distribution
+            with tempfile.TemporaryDirectory() as dirname:
+                subprocess.run(f'unzip {filename} -d {dirname}/', shell=True, check=True)
+                merge_folders(f'{dirname}/lmod', root)
 
 
 COMMAND = Install

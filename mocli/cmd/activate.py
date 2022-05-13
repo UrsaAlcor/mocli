@@ -1,7 +1,8 @@
 import os
 
+
 from mocli.interface import Command
-from mocli.config import option, update_conf
+from mocli.config import option, update_conf, CONFIG
 
 
 template = """
@@ -40,6 +41,7 @@ class Activate(Command):
     def arguments(subparsers):
         parser = subparsers.add_parser(Activate.name, help='Show how to activate alcor')
         parser.add_argument("--auto", action='store_true')
+        parser.add_argument("--force", action='store_true')
 
     @staticmethod
     def execute(args):
@@ -52,20 +54,24 @@ class Activate(Command):
         code = bash_activation(root, modules)
         print(code)
 
-        config_base = os.getenv('XDG_CONFIG_HOME', '~/.config')
-        bash_file = os.path.join(config_base, "alcor", "bash.rc")                                 
+        home = os.path.expanduser('~')
+        bash_file = os.path.join(CONFIG, "bashrc")                                 
+        os.makedirs(CONFIG, exist_ok=True)
 
         # Update bashrc if enabled
         if args.auto:
+            print(f'Activation code written to {bash_file}')
+            print(f'    `exec bash` to update environment')
+            
             old_auto = option('auto')
             update_conf(auto=args.auto)
 
             with open(bash_file, 'w') as file:
                 file.write(code)
 
-            if not old_auto:
-                with open('~/.bashrc', 'a') as file:
-                    file.write('\nsource ${XDG_CONFIG_HOME:~/.config}/alcor/bash.rc\n')
+            if not old_auto or args.force:
+                with open(f'{home}/.bashrc', 'a') as file:
+                    file.write(f'\nsource {CONFIG}/bashrc\nactivate_alcor\n')
         
 
 COMMAND = Activate
