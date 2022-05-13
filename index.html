@@ -120,19 +120,19 @@ gcc lz4_main.c -o lz4_main -llz4
 <p>This is not guaranteed to work.
 Package might hardcode library path or expect a specific system setup.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>alcor aptinstall libsdl2-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>alcor aptinstall libeigen3-dev
 
-module load libsdl2-dev
+module load libeigen3-dev
 
-tee sdl2_main.c <span class="s">&lt;&lt; END</span>
-<span class="s">#include &quot;SDL2/SDL.h&quot;</span>
+tee eigen_main.c <span class="s">&lt;&lt; END</span>
+<span class="s">#include &quot;eigen3/Eigen/Core.h&quot;</span>
 
 <span class="s">int main(int argc, const char* argv[]){</span>
 <span class="s">    return 0;</span>
 <span class="s">}</span>
 <span class="s">END</span>
 
-gcc sdl2_main.c -o sdl2_main -lSDL2
+gcc eigen_main.c -o eigen_main
 </pre></div>
 </div>
 </section>
