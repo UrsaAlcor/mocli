@@ -80,22 +80,38 @@
 <h2>Dev/Personal Install<a class="headerlink" href="#dev-personal-install" title="Permalink to this headline"></a></h2>
 <section id="install-lmod">
 <h3>Install Lmod<a class="headerlink" href="#install-lmod" title="Permalink to this headline"></a></h3>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Lmod to the given location</span>
-<span class="n">alcor</span> <span class="n">init</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">alcor</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Lmod to the given location</span>
+alcor init /opt/alcor
 
 <span class="c1"># Modify bash to automatically source alcor bash profiles</span>
-<span class="n">alcor</span> <span class="n">activate</span> <span class="o">--</span><span class="n">auto</span>
+alcor activate --auto
 
 <span class="c1"># Reload environment</span>
-<span class="n">exec</span> <span class="n">bash</span>
+<span class="nb">exec</span> bash
 
 <span class="c1"># Show a list of available modules</span>
-<span class="n">module</span> <span class="n">spider</span>
+module spider
 </pre></div>
 </div>
 </section>
 <section id="install-new-modules">
 <h3>Install New Modules<a class="headerlink" href="#install-new-modules" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>alcor install lz4
+
+module load lz4
+
+<span class="c1"># all the paths are set we can compile programs with lz4</span>
+tee lz4_main.c <span class="s">&lt;&lt; END</span>
+<span class="s">#include &quot;lz4.h&quot;</span>
+
+<span class="s">int main(int argc, const char* argv[]){</span>
+<span class="s">    return 0;</span>
+<span class="s">}</span>
+<span class="s">END</span>
+
+gcc lz4_main.c -o lz4_main -llz4
+</pre></div>
+</div>
 </section>
 <section id="install-apt-packages">
 <h3>Install Apt packages<a class="headerlink" href="#install-apt-packages" title="Permalink to this headline"></a></h3>
@@ -103,6 +119,21 @@
 <p class="admonition-title">Warning</p>
 <p>This is not guaranteed to work.
 Package might hardcode library path or expect a specific system setup.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>alcor aptinstall libsdl2-dev
+
+module load libsdl2-dev
+
+tee sdl2_main.c <span class="s">&lt;&lt; END</span>
+<span class="s">#include &quot;SDL2/SDL.h&quot;</span>
+
+<span class="s">int main(int argc, const char* argv[]){</span>
+<span class="s">    return 0;</span>
+<span class="s">}</span>
+<span class="s">END</span>
+
+gcc sdl2_main.c -o sdl2_main -lSDL2
+</pre></div>
 </div>
 </section>
 </section>
@@ -113,12 +144,15 @@ Package might hardcode library path or expect a specific system setup.</p>
 <li><p>Update /etc/profile so every user connecting to the cluster gets modules</p></li>
 <li><p>user can install their own package locally in their home</p></li>
 </ul>
+<section id="enabling-user-modules">
+<h3>Enabling User modules<a class="headerlink" href="#enabling-user-modules" title="Permalink to this headline"></a></h3>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">mocli</a></li>
 </ul>
 </div>
+</section>
 </section>
 </section>
 
