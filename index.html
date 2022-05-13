@@ -124,7 +124,7 @@ Package might hardcode library path or expect a specific system setup.</p>
 
 module load libeigen3-dev
 
-tee eigen_main.c <span class="s">&lt;&lt; END</span>
+tee eigen_main.cpp <span class="s">&lt;&lt; END</span>
 <span class="s">#include &lt;eigen3/Eigen/Core&gt;</span>
 
 <span class="s">int main(int argc, const char* argv[]){</span>
@@ -132,7 +132,7 @@ tee eigen_main.c <span class="s">&lt;&lt; END</span>
 <span class="s">}</span>
 <span class="s">END</span>
 
-gcc eigen_main.c -o eigen_main
+g++ eigen_main.c -o eigen_main
 </pre></div>
 </div>
 </section>
