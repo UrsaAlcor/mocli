@@ -8,7 +8,7 @@ from mocli.config import option
 from mocli.interface import Command
 
 packages = {
-    "lz4": "https://github.com/UrsaAlcor/lz4/releases/download/v0.0.0/lz4_x86_64.zip"
+    "lz4": "https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip"
 }
 
 

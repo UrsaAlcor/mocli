@@ -12,9 +12,9 @@ from mocli.mcmd.activate import bash_activation
 logger = logging.getLogger(__file__)
 
 LMOD_ARCH = {"aarch64", "ppc64le", "riscv64", "x86_64"}
-LMOD_VERSION = "v0.0.0"
+LMOD_VERSION = "v0.0.2"
 LMOD_RELEASE = (
-    "https://github.com/UrsaAlcor/Lmod/releases/download/v0.0.0/lmod_x86_64.zip"
+    "https://github.com/UrsaAlcor/Lmod/releases/download/v0.0.2/lmod_x86_64.zip"
 )
 
 

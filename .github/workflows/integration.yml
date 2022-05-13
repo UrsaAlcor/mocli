@@ -30,18 +30,23 @@ jobs:
       run: |
         alcor init $(pwd)/alcor
         alcor activate --auto
+
         source /home/runner/.config/mocli/bashrc
-        activate_alcor
+        activate_alcor 
 
         module spider
         module list
 
     - name: Test Install Modules
       run: |
-        source /home/runner/work/mocli/mocli/alcor/lmod/init/profile
+        source /home/runner/.config/mocli/bashrc
+        activate_alcor 
+
         bash tests/integration/test_install_module.sh
 
     - name: Test Install Apt
       run: |
-        bash test/integration/test_install_apt.sh
+        source /home/runner/.config/mocli/bashrc
+        activate_alcor 
 
+        bash tests/integration/test_install_apt.sh

@@ -1,14 +1,13 @@
-source /home/runner/.config/mocli/bashrc
-alcor aptinstall libsdl2-dev
+alcor aptinstall libeigen3-dev
 
-module load libsdl2-dev
+module load libeigen3-dev
 
-tee sdl2_main.c << END
-#include "SDL2/SDL.h"
+tee eigen_main.cpp << END
+#include <eigen3/Eigen/Core>
 
 int main(int argc, const char* argv[]){
     return 0;
 }
 END
 
-gcc sdl2_main.c -o sdl2_main -lSDL2
+g++ eigen_main.cpp -o eigen_main

@@ -34,7 +34,6 @@ Install New Modules
 
 .. literalinclude :: ../tests/integration/test_install_module.sh
    :language: bash
-   :lines: 2-
 
 
 Install Apt packages
@@ -48,7 +47,6 @@ Install Apt packages
 
 .. literalinclude :: ../tests/integration/test_install_apt.sh
    :language: bash
-   :lines: 2-
 
 
 Cluster Installation
