@@ -1,3 +1,4 @@
+set -vex
 alcor install lz4
 
 module load lz4

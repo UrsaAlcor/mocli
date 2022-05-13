@@ -14,7 +14,7 @@ Dev/Personal Install
 Install Lmod
 ^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
    # Install Lmod to the given location
    alcor init /opt/alcor
@@ -32,8 +32,9 @@ Install Lmod
 Install New Modules
 ^^^^^^^^^^^^^^^^^^^
 
-.. literalinclude :: tests/integration/test_install_module.sh
+.. literalinclude :: ../tests/integration/test_install_module.sh
    :language: bash
+   :lines: 2-
 
 
 Install Apt packages
@@ -45,8 +46,9 @@ Install Apt packages
    Package might hardcode library path or expect a specific system setup.
 
 
-.. literalinclude :: tests/integration/test_install_apt.sh
+.. literalinclude :: ../tests/integration/test_install_apt.sh
    :language: bash
+   :lines: 2-
 
 
 Cluster Installation
@@ -57,4 +59,4 @@ Cluster Installation
 * user can install their own package locally in their home
 
 Enabling User modules
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^

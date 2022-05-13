@@ -1,21 +1,21 @@
-from argparse import ArgumentParser
 import logging
+from argparse import ArgumentParser
 
-from mocli.cmd import commands
+from mocli.mcmd import commands
 
 
 def parse_args():
     parser = ArgumentParser()
     # Root Arguments
 
-
     # --
-    subparsers = parser.add_subparsers(dest='command')
+    subparsers = parser.add_subparsers(dest="command")
 
     for _, command in commands.items():
         command.arguments(subparsers)
 
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
@@ -26,11 +26,11 @@ def main():
     command = commands.get(cmd_name)
 
     if command is None:
-        print(f'Action `{cmd_name}` not implemented')
+        print(f"Action `{cmd_name}` not implemented")
         return
 
     command.execute(args)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

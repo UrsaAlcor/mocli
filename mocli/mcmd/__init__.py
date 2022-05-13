@@ -1,12 +1,12 @@
-import os
 import glob
+import os
 
 
-def fetch_factories(base_module, base_file_name, function_name='COMMAND'):
+def fetch_factories(base_module, base_file_name, function_name="COMMAND"):
     factories = {}
     module_path = os.path.dirname(os.path.abspath(base_file_name))
 
-    for module_path in glob.glob(os.path.join(module_path, '[A-Za-z]*.py')):
+    for module_path in glob.glob(os.path.join(module_path, "[A-Za-z]*.py")):
         module_file = module_path.split(os.sep)[-1]
 
         if module_file == base_file_name:
@@ -15,7 +15,7 @@ def fetch_factories(base_module, base_file_name, function_name='COMMAND'):
         module_name = module_file.split(".py")[0]
 
         try:
-            module = __import__(".".join([base_module, module_name]), fromlist=[''])
+            module = __import__(".".join([base_module, module_name]), fromlist=[""])
         except ImportError as e:
             print(e)
             continue
@@ -28,4 +28,4 @@ def fetch_factories(base_module, base_file_name, function_name='COMMAND'):
     return factories
 
 
-commands = fetch_factories('mocli.cmd', __file__)
+commands = fetch_factories("mocli.mcmd", __file__)

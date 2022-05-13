@@ -1,4 +1,4 @@
-name: tests
+name: integration
 
 on: [push, pull_request]
 
@@ -30,11 +30,15 @@ jobs:
       run: |
         alcor init $(pwd)/alcor
         alcor activate --auto
-        exec bash
-        module spider
+        source /home/runner/.config/mocli/bashrc
+        activate_alcor
 
-    - name: Test Install Module
+        module spider
+        module list
+
+    - name: Test Install Modules
       run: |
+        source /home/runner/work/mocli/mocli/alcor/lmod/init/profile
         bash tests/integration/test_install_module.sh
 
     - name: Test Install Apt

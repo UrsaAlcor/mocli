@@ -1,3 +1,4 @@
+source /home/runner/.config/mocli/bashrc
 alcor aptinstall libsdl2-dev
 
 module load libsdl2-dev

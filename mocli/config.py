@@ -1,13 +1,12 @@
-import os
 import json
+import os
 
 from appdirs import user_config_dir
 
-
-NAME = 'mocli'
-AUTHOR = 'mocli'
+NAME = "mocli"
+AUTHOR = "mocli"
 CONFIG = user_config_dir(NAME, AUTHOR)
-CONFIGNAME = 'loc.json'
+CONFIGNAME = "loc.json"
 LATEST_CONF = None
 
 
@@ -17,10 +16,10 @@ def load_conf():
     os.makedirs(CONFIG, exist_ok=True)
 
     try:
-        with open(config, 'r') as conffile:
+        with open(config, "r") as conffile:
             conf = json.load(conffile)
     except FileNotFoundError:
-            conf = dict()
+        conf = dict()
 
     LATEST_CONF = conf
     return conf
@@ -30,7 +29,7 @@ def save_conf(conf):
     config = os.path.join(CONFIG, CONFIGNAME)
     os.makedirs(CONFIG, exist_ok=True)
 
-    with open(config, 'w') as conffile:
+    with open(config, "w") as conffile:
         json.dump(conf, conffile)
 
 
