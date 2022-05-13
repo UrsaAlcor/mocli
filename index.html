@@ -125,7 +125,7 @@ Package might hardcode library path or expect a specific system setup.</p>
 module load libeigen3-dev
 
 tee eigen_main.c <span class="s">&lt;&lt; END</span>
-<span class="s">#include &quot;eigen3/Eigen/Core.h&quot;</span>
+<span class="s">#include &lt;eigen3/Eigen/Core&gt;</span>
 
 <span class="s">int main(int argc, const char* argv[]){</span>
 <span class="s">    return 0;</span>
