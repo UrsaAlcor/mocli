@@ -18,5 +18,10 @@ if __name__ == '__main__':
             'console_scripts': [
                 'alcor = mocli.cli:main',
             ]
-        }
+        },
+        package_data={
+            "mocli": [
+                'mocli/cmd/templates/ModuleFile.lua'
+            ]
+        },
     )

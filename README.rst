@@ -32,11 +32,8 @@ Install Lmod
 Install New Modules
 ^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
-
-   alcor install lz4
-
-   module load lz4
+.. literalinclude :: tests/integration/test_install_module.sh
+   :language: bash
 
 
 Install Apt packages
@@ -50,11 +47,27 @@ Install Apt packages
 
 .. code-block::
 
-   aclor aptinstall libsdl2-dev
+   alcor aptinstall libsdl2-dev
 
-   module load sdl2
+   module load libsdl2-dev
+
+   tee sdl2_main.c << END
+   #include "SDL2/SDL.h"
+
+   int main(int argc, const char* argv[]){
+      return 0;
+   }
+   END
+
+   gcc sdl2_main.c -o sdl2_main -lSDL2
 
 
 Cluster Installation
 --------------------
 
+* The main installation is readonly
+* Update /etc/profile so every user connecting to the cluster gets modules
+* user can install their own package locally in their home
+
+Enabling User modules
+~~~~~~~~~~~~~~~~~~~~~
