@@ -3,13 +3,14 @@ name: tests
 on: [push, pull_request]
 
 jobs:
-  test:
+  integration:
     runs-on: ${{ matrix.platform }}
     strategy:
       max-parallel: 4
       matrix:
         platform: [ubuntu-latest]
-        python-version: [3.7, 3.8, 3.9, '3.10']
+        python-version: [3.9]
+
     env:
       PLATFORM: ${{ matrix.platform }}
     steps:
@@ -28,7 +29,9 @@ jobs:
     - name: Install Alcor
       run: |
         alcor init $(pwd)/alcor
+        alcor activate --auto
         exec bash
+        module spider
 
     - name: Test Install Module
       run: |
