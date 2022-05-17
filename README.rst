@@ -1,4 +1,4 @@
-mocli
+Alcor
 =====
 
 Alcor command line utility
@@ -56,5 +56,7 @@ Cluster Installation
 * Update /etc/profile so every user connecting to the cluster gets modules
 * user can install their own package locally in their home
 
+
 Enabling User modules
 ^^^^^^^^^^^^^^^^^^^^^
+
