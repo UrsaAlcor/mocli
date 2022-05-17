@@ -1,7 +1,7 @@
-activate
-========
+install
+=======
 
-.. automodule:: mocli.commands.activate
+.. automodule:: mocli.commands.install
     :members:
     :undoc-members:
     :show-inheritance:

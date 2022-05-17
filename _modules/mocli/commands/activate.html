@@ -46,11 +46,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../spec/1_design.html#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../spec/2_lmod.html">Lmod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spec/2_lmod.html">Lmod</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../spec/2_lmod.html#dynamic-loading-of-dependencies">Dynamic loading of dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../spec/3_cli.html">Command Line</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../spec/commands/init.html">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../spec/commands/activate.html">activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../spec/commands/install.html">activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../spec/commands/install.html">install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../spec/commands/apt.html">apt</a></li>
 </ul>
 </li>
@@ -112,20 +115,20 @@
 <span class="s2">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="bash_activation"><a class="viewcode-back" href="../../../spec/commands/install.html#mocli.commands.activate.bash_activation">[docs]</a><span class="k">def</span> <span class="nf">bash_activation</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">modules</span><span class="p">):</span>
+<div class="viewcode-block" id="bash_activation"><a class="viewcode-back" href="../../../spec/commands/activate.html#mocli.commands.activate.bash_activation">[docs]</a><span class="k">def</span> <span class="nf">bash_activation</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">modules</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="n">modules</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Activate"><a class="viewcode-back" href="../../../spec/commands/install.html#mocli.commands.activate.Activate">[docs]</a><span class="k">class</span> <span class="nc">Activate</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
+<div class="viewcode-block" id="Activate"><a class="viewcode-back" href="../../../spec/commands/activate.html#mocli.commands.activate.Activate">[docs]</a><span class="k">class</span> <span class="nc">Activate</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;activate&quot;</span>
 
-<div class="viewcode-block" id="Activate.arguments"><a class="viewcode-back" href="../../../spec/commands/install.html#mocli.commands.activate.Activate.arguments">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Activate.arguments"><a class="viewcode-back" href="../../../spec/commands/activate.html#mocli.commands.activate.Activate.arguments">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">arguments</span><span class="p">(</span><span class="n">subparsers</span><span class="p">):</span>
         <span class="n">parser</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="n">Activate</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Show how to activate alcor&quot;</span><span class="p">)</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--auto&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--force&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Activate.execute"><a class="viewcode-back" href="../../../spec/commands/install.html#mocli.commands.activate.Activate.execute">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Activate.execute"><a class="viewcode-back" href="../../../spec/commands/activate.html#mocli.commands.activate.Activate.execute">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="n">root</span> <span class="o">=</span> <span class="n">option</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)</span>
         <span class="n">modules</span> <span class="o">=</span> <span class="n">option</span><span class="p">(</span><span class="s2">&quot;modules&quot;</span><span class="p">)</span>

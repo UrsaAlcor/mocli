@@ -46,11 +46,14 @@
 <li class="toctree-l2"><a class="reference internal" href="spec/1_design.html#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="spec/2_lmod.html">Lmod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec/2_lmod.html">Lmod</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spec/2_lmod.html#dynamic-loading-of-dependencies">Dynamic loading of dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="spec/3_cli.html">Command Line</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="spec/commands/init.html">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spec/commands/activate.html">activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spec/commands/install.html">activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec/commands/install.html">install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spec/commands/apt.html">apt</a></li>
 </ul>
 </li>
@@ -95,24 +98,25 @@
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#U"><strong>U</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate">Activate (class in mocli.commands.activate)</a>, <a href="spec/commands/install.html#mocli.commands.activate.Activate">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate">Activate (class in mocli.commands.activate)</a>
 </li>
       <li><a href="spec/commands/apt.html#mocli.commands.apt.Apt">Apt (class in mocli.commands.apt)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.arguments">arguments() (mocli.commands.activate.Activate static method)</a>, <a href="spec/commands/install.html#mocli.commands.activate.Activate.arguments">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.arguments">arguments() (mocli.commands.activate.Activate static method)</a>
 
       <ul>
         <li><a href="spec/commands/apt.html#mocli.commands.apt.Apt.arguments">(mocli.commands.apt.Apt static method)</a>
 </li>
         <li><a href="spec/commands/init.html#mocli.commands.init.InstallLmod.arguments">(mocli.commands.init.InstallLmod static method)</a>
+</li>
+        <li><a href="spec/commands/install.html#mocli.commands.install.Install.arguments">(mocli.commands.install.Install static method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -121,7 +125,7 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.bash_activation">bash_activation() (in module mocli.commands.activate)</a>, <a href="spec/commands/install.html#mocli.commands.activate.bash_activation">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.bash_activation">bash_activation() (in module mocli.commands.activate)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -129,12 +133,14 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.COMMAND">COMMAND (in module mocli.commands.activate)</a>, <a href="spec/commands/install.html#mocli.commands.activate.COMMAND">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.COMMAND">COMMAND (in module mocli.commands.activate)</a>
 
       <ul>
         <li><a href="spec/commands/apt.html#mocli.commands.apt.COMMAND">(in module mocli.commands.apt)</a>
 </li>
         <li><a href="spec/commands/init.html#mocli.commands.init.COMMAND">(in module mocli.commands.init)</a>
+</li>
+        <li><a href="spec/commands/install.html#mocli.commands.install.COMMAND">(in module mocli.commands.install)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -143,12 +149,14 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.execute">execute() (mocli.commands.activate.Activate static method)</a>, <a href="spec/commands/install.html#mocli.commands.activate.Activate.execute">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.execute">execute() (mocli.commands.activate.Activate static method)</a>
 
       <ul>
         <li><a href="spec/commands/apt.html#mocli.commands.apt.Apt.execute">(mocli.commands.apt.Apt static method)</a>
 </li>
         <li><a href="spec/commands/init.html#mocli.commands.init.InstallLmod.execute">(mocli.commands.init.InstallLmod static method)</a>
+</li>
+        <li><a href="spec/commands/install.html#mocli.commands.install.Install.execute">(mocli.commands.install.Install static method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -169,6 +177,10 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="spec/commands/install.html#mocli.commands.install.Install">Install (class in mocli.commands.install)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="spec/commands/init.html#mocli.commands.init.InstallLmod">InstallLmod (class in mocli.commands.init)</a>
 </li>
   </ul></td>
@@ -177,6 +189,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="spec/commands/install.html#mocli.commands.install.merge_folders">merge_folders() (in module mocli.commands.install)</a>
+</li>
       <li>
     mocli
 
@@ -188,7 +202,7 @@
     mocli.commands.activate
 
       <ul>
-        <li><a href="spec/commands/activate.html#module-mocli.commands.activate">module</a>, <a href="spec/commands/install.html#module-mocli.commands.activate">[1]</a>
+        <li><a href="spec/commands/activate.html#module-mocli.commands.activate">module</a>
 </li>
       </ul></li>
       <li>
@@ -205,6 +219,13 @@
         <li><a href="spec/commands/init.html#module-mocli.commands.init">module</a>
 </li>
       </ul></li>
+      <li>
+    mocli.commands.install
+
+      <ul>
+        <li><a href="spec/commands/install.html#module-mocli.commands.install">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
@@ -213,11 +234,13 @@
       <ul>
         <li><a href="api.html#module-mocli">mocli</a>
 </li>
-        <li><a href="spec/commands/activate.html#module-mocli.commands.activate">mocli.commands.activate</a>, <a href="spec/commands/install.html#module-mocli.commands.activate">[1]</a>
+        <li><a href="spec/commands/activate.html#module-mocli.commands.activate">mocli.commands.activate</a>
 </li>
         <li><a href="spec/commands/apt.html#module-mocli.commands.apt">mocli.commands.apt</a>
 </li>
         <li><a href="spec/commands/init.html#module-mocli.commands.init">mocli.commands.init</a>
+</li>
+        <li><a href="spec/commands/install.html#module-mocli.commands.install">mocli.commands.install</a>
 </li>
       </ul></li>
       <li><a href="spec/commands/init.html#mocli.commands.init.move_content">move_content() (in module mocli.commands.init)</a>
@@ -232,14 +255,24 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.name">name (mocli.commands.activate.Activate attribute)</a>, <a href="spec/commands/install.html#mocli.commands.activate.Activate.name">[1]</a>
+      <li><a href="spec/commands/activate.html#mocli.commands.activate.Activate.name">name (mocli.commands.activate.Activate attribute)</a>
 
       <ul>
         <li><a href="spec/commands/apt.html#mocli.commands.apt.Apt.name">(mocli.commands.apt.Apt attribute)</a>
 </li>
         <li><a href="spec/commands/init.html#mocli.commands.init.InstallLmod.name">(mocli.commands.init.InstallLmod attribute)</a>
 </li>
+        <li><a href="spec/commands/install.html#mocli.commands.install.Install.name">(mocli.commands.install.Install attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="spec/commands/install.html#mocli.commands.install.resolve_package">resolve_package() (in module mocli.commands.install)</a>
+</li>
   </ul></td>
 </tr></table>
 

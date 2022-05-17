@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>activate &mdash; mocli version documentation</title>
+  <title>install &mdash; mocli version documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -49,11 +49,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../1_design.html#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../2_lmod.html">Lmod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_lmod.html">Lmod</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_lmod.html#dynamic-loading-of-dependencies">Dynamic loading of dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="../3_cli.html">Command Line</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="init.html">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="activate.html">activate</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">activate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apt.html">apt</a></li>
 </ul>
 </li>
@@ -78,7 +81,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../3_cli.html">Command Line</a> &raquo;</li>
-      <li>activate</li>
+      <li>install</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/spec/commands/install.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,11 +94,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-mocli.commands.activate">
-<span id="activate"></span><h1>activate<a class="headerlink" href="#module-mocli.commands.activate" title="Permalink to this headline"></a></h1>
+  <section id="module-mocli.commands.install">
+<span id="install"></span><h1>install<a class="headerlink" href="#module-mocli.commands.install" title="Permalink to this headline"></a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mocli.commands.install.COMMAND">
+<span class="sig-prename descclassname"><span class="pre">mocli.commands.install.</span></span><span class="sig-name descname"><span class="pre">COMMAND</span></span><a class="headerlink" href="#mocli.commands.install.COMMAND" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#mocli.commands.install.Install" title="mocli.commands.install.Install"><code class="xref py py-class docutils literal notranslate"><span class="pre">mocli.commands.install.Install</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="mocli.commands.activate.Activate">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mocli.commands.activate.</span></span><span class="sig-name descname"><span class="pre">Activate</span></span><a class="reference internal" href="../../_modules/mocli/commands/activate.html#Activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.activate.Activate" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mocli.commands.install.Install">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mocli.commands.install.</span></span><span class="sig-name descname"><span class="pre">Install</span></span><a class="reference internal" href="../../_modules/mocli/commands/install.html#Install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.install.Install" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mocli.interface.Command</span></code></p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
@@ -113,31 +122,30 @@
 </tbody>
 </table>
 <dl class="py method">
-<dt class="sig sig-object py" id="mocli.commands.activate.Activate.arguments">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subparsers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/activate.html#Activate.arguments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.activate.Activate.arguments" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mocli.commands.install.Install.arguments">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subparsers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/install.html#Install.arguments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.install.Install.arguments" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="mocli.commands.activate.Activate.execute">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/activate.html#Activate.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.activate.Activate.execute" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mocli.commands.install.Install.execute">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/install.html#Install.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.install.Install.execute" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mocli.commands.activate.Activate.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'activate'</span></em><a class="headerlink" href="#mocli.commands.activate.Activate.name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mocli.commands.install.Install.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'install'</span></em><a class="headerlink" href="#mocli.commands.install.Install.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mocli.commands.activate.COMMAND">
-<span class="sig-prename descclassname"><span class="pre">mocli.commands.activate.</span></span><span class="sig-name descname"><span class="pre">COMMAND</span></span><a class="headerlink" href="#mocli.commands.activate.COMMAND" title="Permalink to this definition"></a></dt>
-<dd><p>alias of <a class="reference internal" href="#mocli.commands.activate.Activate" title="mocli.commands.activate.Activate"><code class="xref py py-class docutils literal notranslate"><span class="pre">mocli.commands.activate.Activate</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="mocli.commands.activate.bash_activation">
-<span class="sig-prename descclassname"><span class="pre">mocli.commands.activate.</span></span><span class="sig-name descname"><span class="pre">bash_activation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modules</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/activate.html#bash_activation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.activate.bash_activation" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="mocli.commands.install.merge_folders">
+<span class="sig-prename descclassname"><span class="pre">mocli.commands.install.</span></span><span class="sig-name descname"><span class="pre">merge_folders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/install.html#merge_folders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.install.merge_folders" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mocli.commands.install.resolve_package">
+<span class="sig-prename descclassname"><span class="pre">mocli.commands.install.</span></span><span class="sig-name descname"><span class="pre">resolve_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mocli/commands/install.html#resolve_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mocli.commands.install.resolve_package" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>

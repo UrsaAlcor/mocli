@@ -49,11 +49,14 @@
 <li class="toctree-l2"><a class="reference internal" href="1_design.html#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lmod</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lmod</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-loading-of-dependencies">Dynamic loading of dependencies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="3_cli.html">Command Line</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="commands/init.html">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands/activate.html">activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands/install.html">activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/install.html">install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands/apt.html">apt</a></li>
 </ul>
 </li>
@@ -120,6 +123,16 @@
 </dl>
 </li>
 </ul>
+<section id="dynamic-loading-of-dependencies">
+<h2>Dynamic loading of dependencies<a class="headerlink" href="#dynamic-loading-of-dependencies" title="Permalink to this headline"></a></h2>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">DT_RPATH</span> <span class="n">unless</span> <span class="n">DT_RUNPATH</span>
+<span class="mf">2.</span> <span class="n">LD_LIBRARY_PATH</span>
+<span class="mf">3.</span> <span class="n">DT_RUNPATH</span>
+<span class="mf">4.</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ld</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> <span class="n">unless</span> <span class="o">-</span><span class="n">z</span> <span class="n">nodeflib</span>
+<span class="mf">5.</span> <span class="o">/</span><span class="n">lib</span><span class="p">,</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span> <span class="n">unless</span> <span class="o">-</span><span class="n">z</span> <span class="n">nodeflib</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
