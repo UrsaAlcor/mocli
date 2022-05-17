@@ -28,4 +28,4 @@ def fetch_factories(base_module, base_file_name, function_name="COMMAND"):
     return factories
 
 
-commands = fetch_factories("mocli.mcmd", __file__)
+commands = fetch_factories("mocli.commands", __file__)

@@ -7,7 +7,7 @@ from io import UnsupportedOperation
 
 from mocli.config import update_conf
 from mocli.interface import Command
-from mocli.mcmd.activate import bash_activation
+from mocli.commands.activate import bash_activation
 
 logger = logging.getLogger(__file__)
 
