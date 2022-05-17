@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lmod &mdash; mocli version documentation</title>
+  <title>Overview: module code &mdash; mocli version documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,9 +16,7 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Command Line" href="3_cli.html" />
-    <link rel="prev" title="Design" href="1_design.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,20 +38,20 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Specifications</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="0_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_design.html">Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_design.html#goals">Goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_design.html#challenges">Challenges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_design.html#solutions">Solutions</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spec/0_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec/1_design.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spec/1_design.html#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec/1_design.html#challenges">Challenges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec/1_design.html#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lmod</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_cli.html">Command Line</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commands/init.html">init</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands/activate.html">activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands/install.html">activate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands/apt.html">apt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec/2_lmod.html">Lmod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec/3_cli.html">Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spec/commands/init.html">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec/commands/activate.html">activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec/commands/install.html">activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec/commands/apt.html">apt</a></li>
 </ul>
 </li>
 </ul>
@@ -77,58 +74,24 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Lmod</li>
+      <li>Overview: module code</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/spec/2_lmod.rst.txt" rel="nofollow"> View page source</a>
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="1_design.html" class="btn btn-neutral float-left" title="Design" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3_cli.html" class="btn btn-neutral float-right" title="Command Line" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-  </div>
+  </ul>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="lmod">
-<h1>Lmod<a class="headerlink" href="#lmod" title="Permalink to this headline"></a></h1>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Statically linked against (i.e squashed dependencies)</dt><dd><ul>
-<li><p>lfs</p></li>
-<li><p>lpeg</p></li>
-<li><p>luaposix</p></li>
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="mocli/commands/activate.html">mocli.commands.activate</a></li>
+<li><a href="mocli/commands/apt.html">mocli.commands.apt</a></li>
+<li><a href="mocli/commands/init.html">mocli.commands.init</a></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Built using alpine linux</dt><dd><ul>
-<li><p>statically linked against musl (no dependency on any system libraries)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Cross compiled</dt><dd><ul>
-<li><p>x86_64</p></li>
-<li><p>ppc64le</p></li>
-<li><p>riscv64</p></li>
-<li><p>aarch64</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</section>
-
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="1_design.html" class="btn btn-neutral float-left" title="Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3_cli.html" class="btn btn-neutral float-right" title="Command Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
