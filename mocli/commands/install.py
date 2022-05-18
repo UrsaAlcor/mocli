@@ -7,8 +7,14 @@ import tempfile
 from mocli.config import option
 from mocli.interface import Command
 
+# TODO: find a way to make this dynamic
+# maybe we can use github API to query the org and just have a list of the exceptions
+#
 packages = {
-    "lz4": "https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip"
+    "lz4": "https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip",
+    "link": "https://github.com/UrsaAlcor/link/releases/download/v0.0.1/linker_x86_64.zip",
+    "libjpeg": "https://github.com/UrsaAlcor/libjpeg-turbo/releases/download/v0.0.0/lz4_x86_64.zip",
+    "nasm": "https://github.com/UrsaAlcor/nasm/releases/download/v0.0.0/nasm_x86_64.zip",
 }
 
 
