@@ -97,8 +97,14 @@
 <span class="kn">from</span> <span class="nn">mocli.config</span> <span class="kn">import</span> <span class="n">option</span>
 <span class="kn">from</span> <span class="nn">mocli.interface</span> <span class="kn">import</span> <span class="n">Command</span>
 
+<span class="c1"># TODO: find a way to make this dynamic</span>
+<span class="c1"># maybe we can use github API to query the org and just have a list of the exceptions</span>
+<span class="c1">#</span>
 <span class="n">packages</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;lz4&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip&quot;</span>
+    <span class="s2">&quot;lz4&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/UrsaAlcor/link/releases/download/v0.0.1/linker_x86_64.zip&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;libjpeg&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/UrsaAlcor/libjpeg-turbo/releases/download/v0.0.0/lz4_x86_64.zip&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nasm&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/UrsaAlcor/nasm/releases/download/v0.0.0/nasm_x86_64.zip&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 
 
