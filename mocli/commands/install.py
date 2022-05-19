@@ -13,7 +13,7 @@ from mocli.interface import Command
 packages = {
     "lz4": "https://github.com/UrsaAlcor/lz4/releases/download/v0.0.1/lz4_x86_64.zip",
     "link": "https://github.com/UrsaAlcor/link/releases/download/v0.0.1/linker_x86_64.zip",
-    "libjpeg": "https://github.com/UrsaAlcor/libjpeg-turbo/releases/download/v0.0.0/lz4_x86_64.zip",
+    "libjpeg-turbo": "https://github.com/UrsaAlcor/libjpeg-turbo/releases/download/v0.0.0/libjpeg-turbo_x86_64.zip",
     "nasm": "https://github.com/UrsaAlcor/nasm/releases/download/v0.0.0/nasm_x86_64.zip",
 }
 

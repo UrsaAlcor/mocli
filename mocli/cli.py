@@ -1,7 +1,7 @@
 import logging
 from argparse import ArgumentParser
 
-from mocli.mcmd import commands
+from mocli.commands import commands
 
 
 def parse_args():
